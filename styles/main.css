@@ -1,0 +1,53 @@
+body.dark {
+  --accent: rgb(52, 141, 250);
+  --accent-lighter: rgb(78, 197, 248);
+
+  --background: rgb(22, 22, 22);
+  --foreground: rgb(229, 241, 249);
+  --foreground-dimmed: rgba(255, 255, 255, 0.8);
+
+  --punctuation: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.punctuation {
+  color: var(--punctuation);
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accented {
+  color: var(--accent);
+}
+
+.gradient {
+  background-image: linear-gradient(
+    312deg,
+    var(--accent-lighter) 48.0785%,
+    var(--accent) 100%
+  );
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#faq {
+  color: var(--foreground-dimmed);
+  font-size: 8rem;
+  margin: 4rem;
+}
+*::selection {
+  background: var(--accent);
+}
