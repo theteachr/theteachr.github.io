@@ -60,8 +60,7 @@ body {
 
 #faq {
   color: var(--foreground-dimmed);
-  font-size: 8rem;
-  margin: 4rem;
+  margin: 2rem;
 }
 
 *::selection {
