@@ -1,4 +1,4 @@
-body.dark {
+#main.dark {
   --accent: rgb(52, 141, 250);
   --accent-lighter: rgb(78, 197, 248);
 
@@ -9,10 +9,25 @@ body.dark {
   --punctuation: rgba(255, 255, 255, 0.2);
 }
 
+#main.light {
+  --accent: rgb(78, 197, 248);
+  --accent-lighter: rgb(52, 141, 250);
+
+  --foreground: rgb(22, 22, 22);
+  --background: rgb(229, 241, 249);
+  --foreground-dimmed: rgba(0, 0, 0, 0.797);
+
+  --punctuation: rgba(0, 0, 0, 0.2);
+}
+
 body {
   height: 100vh;
+}
+
+#main {
   background: var(--background);
   color: var(--foreground);
+  height: 100%;
 }
 
 .punctuation {
