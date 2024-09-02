@@ -77,4 +77,6 @@ body {
 
 #main span {
   user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
