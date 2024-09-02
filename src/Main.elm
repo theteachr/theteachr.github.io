@@ -1,4 +1,4 @@
-module Main exposing (..)
+port module Main exposing (..)
 
 import Browser
 import Html exposing (Html, div, h1, span, text)
@@ -7,18 +7,22 @@ import Html.Events exposing (onClick)
 import Theme exposing (Theme)
 
 
-main : Program () Model Msg
+main : Program Bool Model Msg
 main =
     Browser.document
         { init = init
         , update = update
         , view = \model -> { title = "theteachr", body = [ view model ] }
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = subscriptions
         }
+
+
+port onThemeChange : (Bool -> msg) -> Sub msg
 
 
 type Msg
     = SwitchTheme
+    | SetDarkTheme Bool
 
 
 type alias Model =
@@ -26,9 +30,9 @@ type alias Model =
     }
 
 
-init : flags -> ( Model, Cmd Msg )
-init _ =
-    ( { theme = Theme.Dark }, Cmd.none )
+init : Bool -> ( Model, Cmd Msg )
+init prefersDark =
+    ( { theme = Theme.fromBool prefersDark }, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -36,6 +40,14 @@ update msg model =
     case msg of
         SwitchTheme ->
             ( { model | theme = Theme.next model.theme }, Cmd.none )
+
+        SetDarkTheme prefersDark ->
+            ( { model | theme = Theme.fromBool prefersDark }, Cmd.none )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    onThemeChange SetDarkTheme
 
 
 view : Model -> Html Msg

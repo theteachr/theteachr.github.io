@@ -17,6 +17,17 @@
   <body></body>
 
   <script type="text/javascript">
-    let app = Elm.Main.init({});
+    const queryDarkScheme = "(prefers-color-scheme: dark)";
+
+    const prefersDarkScheme =
+      window.matchMedia && window.matchMedia(queryDarkScheme).matches;
+
+    const app = Elm.Main.init({ flags: prefersDarkScheme });
+
+    // Listen to theme change events.
+    window.matchMedia(queryDarkScheme).addEventListener("change", (event) => {
+      // Dark: true, Light: false
+      app.ports.onThemeChange.send(event.matches);
+    });
   </script>
 </html>

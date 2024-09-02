@@ -1,4 +1,4 @@
-module Theme exposing (Theme(..), next, toString)
+module Theme exposing (Theme(..), fromBool, next, toString)
 
 
 type Theme
@@ -24,3 +24,12 @@ next theme =
 
         Dark ->
             Light
+
+
+fromBool : Bool -> Theme
+fromBool prefersDark =
+    if prefersDark then
+        Dark
+
+    else
+        Light
