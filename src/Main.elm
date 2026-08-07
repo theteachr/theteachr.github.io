@@ -59,13 +59,9 @@ view model =
                 [ id "faq" ]
                 [ text "I use "
                 , span
-                    [ class "gradient" ]
+                    [ class "gradient"
+                    , onClick SwitchTheme ]
                     [ text "Keynote" ]
-                , span
-                    [ class "punctuation"
-                    , onClick SwitchTheme
-                    ]
-                    [ text "." ]
                 ]
             ]
         ]
