@@ -31,20 +31,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install Elm
+        run: npm install -g elm@0.19.2-0
+
       - name: Build Elm artifact
-        uses: jorelali/setup-elm@v5
-        with:
-          elm-version: 0.19.2
-      - run: elm make src/Main.elm --output=elm.js --optimize
+        run: elm make src/Main.elm --output=elm.js --optimize
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v5
