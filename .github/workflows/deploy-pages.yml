@@ -34,7 +34,7 @@ jobs:
       - name: Build Elm artifact
         uses: jorelali/setup-elm@v5
         with:
-          elm-version: 0.19.1
+          elm-version: 0.19.2
       - run: elm make src/Main.elm --output=elm.js --optimize
 
       - name: Setup Pages
