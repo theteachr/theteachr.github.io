@@ -1,7 +1,7 @@
 port module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, h1, span, text)
+import Html exposing (Html, div, h1, main_, span, text)
 import Html.Attributes exposing (class, id)
 import Html.Events exposing (onClick)
 import Theme exposing (Theme)
@@ -52,7 +52,7 @@ subscriptions _ =
 
 view : Model -> Html Msg
 view model =
-    div [ id "main", class <| Theme.toString model.theme ]
+    main_ [ id "main", class <| Theme.toString model.theme ]
         [ div
             [ class "center" ]
             [ h1
