@@ -60,7 +60,8 @@ view model =
                 [ text "I use "
                 , span
                     [ class "gradient"
-                    , onClick SwitchTheme ]
+                    , onClick SwitchTheme
+                    ]
                     [ text "Keynote" ]
                 ]
             ]
